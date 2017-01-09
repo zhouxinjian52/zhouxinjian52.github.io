@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>新的Fetch API | zhouxinjian | 蚁族程序员 | 周鑫建的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content="异步,Fetch,数据">
+    <meta name="description" content="新的Fetch API什么是Fetch?
+google翻译为取，顾名思义，就是获取某个东西用的；
+
+Fetch有何用？
+在程序当中获取，当然就是获取数据，获取图片，获取某个资源呗！
+
+不是已经有ajax了吗？为什么还要用Fetch？
+ajax是对JavaScript中XMLHttpRequest(XHR)的封装。
+JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新的Fetch API">
+<meta property="og:url" content="https://zhouxinjian52.github.io/2017/01/07/fetch/index.html">
+<meta property="og:site_name" content="zhouxinjian | 蚁族程序员">
+<meta property="og:description" content="新的Fetch API什么是Fetch?
+google翻译为取，顾名思义，就是获取某个东西用的；
+
+Fetch有何用？
+在程序当中获取，当然就是获取数据，获取图片，获取某个资源呗！
+
+不是已经有ajax了吗？为什么还要用Fetch？
+ajax是对JavaScript中XMLHttpRequest(XHR)的封装。
+JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1fbi5yzwzrhj30ds0470st.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1fbi5z06u6gj30d4050glw.jpg">
+<meta property="og:updated_time" content="2017-01-09T12:28:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新的Fetch API">
+<meta name="twitter:description" content="新的Fetch API什么是Fetch?
+google翻译为取，顾名思义，就是获取某个东西用的；
+
+Fetch有何用？
+在程序当中获取，当然就是获取数据，获取图片，获取某个资源呗！
+
+不是已经有ajax了吗？为什么还要用Fetch？
+ajax是对JavaScript中XMLHttpRequest(XHR)的封装。
+JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1fbi5yzwzrhj30ds0470st.jpg">
+    
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhouxinjian</h5>
+          <a href="mailto:zhouxinjian52@126.com" title="zhouxinjian52@126.com" class="mail">zhouxinjian52@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">新的Fetch API</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">新的Fetch API</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-07T08:29:16.000Z" itemprop="datePublished" class="page-time">
+  2017-01-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据请求/">数据请求</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-fetch"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">新的Fetch API</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月07日 16:29" datetime="2017-01-07T08:29:16.000Z"  itemprop="datePublished">2017-01-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据请求/">数据请求</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="新的Fetch-API"><a href="#新的Fetch-API" class="headerlink" title="新的Fetch API"></a>新的Fetch API</h3><h4 id="什么是Fetch"><a href="#什么是Fetch" class="headerlink" title="什么是Fetch?"></a>什么是Fetch?</h4><blockquote>
+<p>google翻译为取，顾名思义，就是获取某个东西用的；</p>
+</blockquote>
+<h4 id="Fetch有何用？"><a href="#Fetch有何用？" class="headerlink" title="Fetch有何用？"></a>Fetch有何用？</h4><blockquote>
+<p>在程序当中获取，当然就是获取数据，获取图片，获取某个资源呗！</p>
+</blockquote>
+<h4 id="不是已经有ajax了吗？为什么还要用Fetch？"><a href="#不是已经有ajax了吗？为什么还要用Fetch？" class="headerlink" title="不是已经有ajax了吗？为什么还要用Fetch？"></a>不是已经有ajax了吗？为什么还要用Fetch？</h4><blockquote>
+<p>ajax是对JavaScript中XMLHttpRequest(XHR)的封装。</p>
+<p>JavaScript 通过XMLHttpRequest(XHR)来执行异步请求，这个方式已经存在了很长一段时间。虽说它很有用，但它不是最佳API。它在设计上不符合职责分离原则，将输入、输出和用事件来跟踪的状态混杂在一个对象里。而且，基于事件的模型与最近JavaScript流行的Promise以及基于生成器的异步编程模型不太搭。所以…</p>
+<p>新的 Fetch API打算修正上面提到的那些缺陷。 它向JS中引入和HTTP协议中同样的原语（即Fetch）。具体而言，它引入一个实用的函数fetch()用来简洁捕捉从网络上检索一个资源的意图。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">改善离线体验</td>
+</tr>
+<tr>
+<td style="text-align:left">保持可扩展性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="故在这种情况下，可以在项目中使用Fetch来替代ajax了（仅供参考）："><a href="#故在这种情况下，可以在项目中使用Fetch来替代ajax了（仅供参考）：" class="headerlink" title="故在这种情况下，可以在项目中使用Fetch来替代ajax了（仅供参考）："></a>故在这种情况下，可以在项目中使用Fetch来替代ajax了（仅供参考）：</h4><h4 id="简单的fetching示例"><a href="#简单的fetching示例" class="headerlink" title="简单的fetching示例"></a>简单的fetching示例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">"/data.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="comment">// res instanceof Response == true.</span></div><div class="line">  <span class="keyword">if</span> (res.ok) &#123;</div><div class="line">    res.json().then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data.entries);</div><div class="line">    &#125;);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Looks like the response wasn't perfect, got status"</span>, res.status);</div><div class="line">  &#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Fetch failed!"</span>, e);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="如果是提交一个POST请求，代码如下："><a href="#如果是提交一个POST请求，代码如下：" class="headerlink" title="如果是提交一个POST请求，代码如下："></a>如果是提交一个POST请求，代码如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">fetch(<span class="string">"/data.json"</span>, &#123;</div><div class="line">  <span class="attr">method</span>: <span class="string">"POST"</span>,</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">body</span>: <span class="string">"firstName=Nikhil&amp;favColor=blue&amp;password=easytoguess"</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (res.ok) &#123;</div><div class="line">    alert(<span class="string">"Perfect! Your settings are saved."</span>);</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.status == <span class="number">401</span>) &#123;</div><div class="line">    alert(<span class="string">"Oops! You are not authorized."</span>);</div><div class="line">  &#125;</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  alert(<span class="string">"Error submitting form!"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="fetch-函数的参数和传给Request-构造函数的参数保持完全一致，所以你可以直接传任意复杂的request请求给fetch-。"><a href="#fetch-函数的参数和传给Request-构造函数的参数保持完全一致，所以你可以直接传任意复杂的request请求给fetch-。" class="headerlink" title="fetch()函数的参数和传给Request()构造函数的参数保持完全一致，所以你可以直接传任意复杂的request请求给fetch()。"></a>fetch()函数的参数和传给Request()构造函数的参数保持完全一致，所以你可以直接传任意复杂的request请求给fetch()。</h5><h4 id="可以通过传body参数来设置Request的body："><a href="#可以通过传body参数来设置Request的body：" class="headerlink" title="可以通过传body参数来设置Request的body："></a>可以通过传body参数来设置Request的body：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> FormData(<span class="built_in">document</span>.getElementById(<span class="string">'data'</span>));</div><div class="line">fetch(<span class="string">"/login"</span>, &#123;</div><div class="line">  <span class="attr">method</span>: <span class="string">"POST"</span>,</div><div class="line">  <span class="attr">body</span>: form</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @name GetAjax ajax请求插件+</div><div class="line"> * @param url 请求接口</div><div class="line"> * @param data 请求参数</div><div class="line"> * @param type get或者post</div><div class="line"> * @param async 同步或异步加载 true为异步 false为同步</div><div class="line"> * @param callback 异步加载回调函数</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">GetAjax</span>(<span class="params">url, data, type, async, callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> url = url || <span class="string">''</span>,        <span class="comment">// 请求的url</span></div><div class="line">        type = type || <span class="string">'GET'</span>,   <span class="comment">// 请求方式</span></div><div class="line">        data = data || &#123;&#125;,      <span class="comment">// 请求参数</span></div><div class="line">        <span class="keyword">async</span> = <span class="keyword">async</span> || <span class="literal">true</span>,  <span class="comment">// 同步还是异步请求</span></div><div class="line">        json = <span class="keyword">void</span> <span class="number">0</span>;          <span class="comment">// 返回的数据</span></div><div class="line"></div><div class="line">    type = type.toUpperCase();  <span class="comment">// 把字符串转换成大写</span></div><div class="line">    <span class="keyword">if</span> (self.fetch) &#123;           <span class="comment">// 判断浏览器是否支持fetch，若不支持则使用ajax</span></div><div class="line">    </div><div class="line">        <span class="comment">// 判断是GET还是POST请求</span></div><div class="line">        <span class="keyword">let</span> Result = type == <span class="string">"GET"</span> ? fetch(<span class="string">"$&#123;url&#125;?$&#123;urlParam($&#123;data&#125;)&#125;"</span>) : fetch(url, &#123;</div><div class="line">            <span class="attr">method</span>: <span class="string">'POST'</span>,</div><div class="line">            <span class="attr">body</span>: <span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</div><div class="line">                <span class="keyword">var</span> json = <span class="keyword">new</span> FormData(); <span class="comment">// 先创建一个空的 FormData，不知道什么是FormData的自行百度</span></div><div class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> data) &#123;</div><div class="line">                    json.append(k, data[k]);</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// 添加完数据后返回一个json</span></div><div class="line">                <span class="keyword">return</span> json;</div><div class="line">            &#125;)()</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// 是时候获取数据了</span></div><div class="line">        Result.then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;  <span class="comment">// 先拿到整个fetch返回数据，取出你需要的json（json就是后台返给你的数据）</span></div><div class="line">            <span class="keyword">return</span> response.json()</div><div class="line">        &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">success</span>) </span>&#123; <span class="comment">// 如果请求成功，直接赋值回调</span></div><div class="line">            <span class="comment">//  请求成功后赋值</span></div><div class="line">            json = success || [];</div><div class="line">            <span class="comment">//  请求成功后异步回调</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span>(callback) === <span class="string">'function'</span>) &#123;</div><div class="line">                callback(json, <span class="literal">true</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">ex</span>) </span>&#123;  <span class="comment">// 请求失败了，返回失败信息</span></div><div class="line">            json = ex || [];</div><div class="line">            <span class="comment">//  请求成功后异步回调</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span>(callback) === <span class="string">'function'</span>) &#123;</div><div class="line">                callback(json, <span class="literal">false</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 以下为大家熟悉的ajax请求就不多说了</span></div><div class="line">        $.ajax(&#123;</div><div class="line">            <span class="comment">//  请求配置</span></div><div class="line">            url: url,</div><div class="line">            <span class="attr">type</span>: type,</div><div class="line">            <span class="attr">data</span>: data,</div><div class="line">            <span class="attr">async</span>: <span class="keyword">async</span></div><div class="line"></div><div class="line">        &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">            <span class="comment">//  请求成功后赋值</span></div><div class="line">            json = data || [];</div><div class="line">            <span class="comment">//  请求成功后异步回调</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span>(callback) === <span class="string">'function'</span>) &#123;</div><div class="line">                callback(json, <span class="literal">true</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">        &#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">            json = data || [];</div><div class="line">            <span class="comment">//  请求成功后异步回调</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span>(callback) === <span class="string">'function'</span>) &#123;</div><div class="line">                callback(json, <span class="literal">false</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//  同步返回值</span></div><div class="line">    <span class="keyword">return</span> json;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://ww3.sinaimg.cn/large/0060lm7Tgw1fbi5yzwzrhj30ds0470st.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://ww3.sinaimg.cn/large/0060lm7Tgw1fbi5z06u6gj30d4050glw.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>希望对大家有点帮助</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://zhouxinjian52.github.io">
+            <img src="/img/avatar.jpg" alt="zhouxinjian">
+            zhouxinjian
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Fetch/">Fetch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据/">数据</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/08/Promise/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一段代码让你直接看懂Promise</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/03/字蛛/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">字蛛</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>zhouxinjian | 蚁族程序员 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.4"></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>一段代码让你直接看懂Promise | zhouxinjian | 蚁族程序员 | 周鑫建的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content="Promise,异步">
+    <meta name="description" content="Promise到底怎么用？？？1234567891011121314151617181920212223242526272829303132333435363738//创建一个Promise实例，获取数据。并把数据传递给处理函数resolve和reject。需要注意的是Promise在声明的时候就执行了。var getUserInfo=new Promise(function(resolve,re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一段代码让你直接看懂Promise">
+<meta property="og:url" content="https://zhouxinjian52.github.io/2017/01/08/Promise/index.html">
+<meta property="og:site_name" content="zhouxinjian | 蚁族程序员">
+<meta property="og:description" content="Promise到底怎么用？？？1234567891011121314151617181920212223242526272829303132333435363738//创建一个Promise实例，获取数据。并把数据传递给处理函数resolve和reject。需要注意的是Promise在声明的时候就执行了。var getUserInfo=new Promise(function(resolve,re">
+<meta property="og:updated_time" content="2017-01-09T12:35:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一段代码让你直接看懂Promise">
+<meta name="twitter:description" content="Promise到底怎么用？？？1234567891011121314151617181920212223242526272829303132333435363738//创建一个Promise实例，获取数据。并把数据传递给处理函数resolve和reject。需要注意的是Promise在声明的时候就执行了。var getUserInfo=new Promise(function(resolve,re">
+    
+    <link rel="shortcut icon" href="/">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">zhouxinjian</h5>
+          <a href="mailto:zhouxinjian52@126.com" title="zhouxinjian52@126.com" class="mail">zhouxinjian52@126.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一段代码让你直接看懂Promise</div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一段代码让你直接看懂Promise</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-08T05:55:23.000Z" itemprop="datePublished" class="page-time">
+  2017-01-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Promise/">Promise</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Promise"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一段代码让你直接看懂Promise</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年01月08日 13:55" datetime="2017-01-08T05:55:23.000Z"  itemprop="datePublished">2017-01-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Promise/">Promise</a></li></ul>
+
+
+
+            
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Promise到底怎么用？？？"><a href="#Promise到底怎么用？？？" class="headerlink" title="Promise到底怎么用？？？"></a>Promise到底怎么用？？？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个Promise实例，获取数据。并把数据传递给处理函数resolve和reject。需要注意的是Promise在声明的时候就执行了。</span></div><div class="line"><span class="keyword">var</span> getUserInfo=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">type</span>:<span class="string">'GET'</span>,</div><div class="line">        <span class="attr">url</span>: <span class="string">'/'</span>,</div><div class="line">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(data.Status==<span class="number">1</span>)&#123;</div><div class="line">                resolve(data.ResultJson) <span class="comment">//在异步操作成功时调用</span></div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                reject(data.ErrMsg); <span class="comment">//在异步操作失败时调用</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"><span class="comment">//另一个ajax Promise对象，</span></div><div class="line"><span class="keyword">var</span> getDataList=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">type</span>:<span class="string">'GET'</span>,</div><div class="line">        <span class="attr">url</span>:<span class="string">'/'</span>,</div><div class="line">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(data.Status==<span class="number">1</span>)&#123;</div><div class="line">                resolve(data.ResultJson); <span class="comment">// 在异步操作成功时调用</span></div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                reject(data.ErrMsg); <span class="comment">// 在异步操作失败时调用</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;)</div><div class="line"><span class="comment">// Promise的方法then,catch方法</span></div><div class="line">getUserInfo.then(<span class="function"><span class="keyword">function</span>(<span class="params">ResultJson</span>)</span>&#123;</div><div class="line">    <span class="comment">//通过拿到的数据渲染页面</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">ErrMsg</span>)</span>&#123;</div><div class="line">    <span class="comment">//获取数据失败时的处理逻辑</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// Promise的all方法，等数组中的所有promise对象都完成执行</span></div><div class="line"><span class="built_in">Promise</span>.all([getUserInfo,getDataList]).then(<span class="function"><span class="keyword">function</span>(<span class="params">[ResultJson1,ResultJson2]</span>)</span>&#123;</div><div class="line">    <span class="comment">// 这里写等这两个ajax都成功返回数据才执行的业务逻辑</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>不用我再过多解释了吧！！</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+    </div>
+    <footer>
+        <a href="https://zhouxinjian52.github.io">
+            <img src="/img/avatar.jpg" alt="zhouxinjian">
+            zhouxinjian
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Promise/">Promise</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异步/">异步</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/09/小程序比较/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">你真的了解小程序吗？</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/07/fetch/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">新的Fetch API</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            <span><a href="" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>zhouxinjian | 蚁族程序员 &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.4"></script>
+
+
+
+
+
+
+
+</body>
+</html>
